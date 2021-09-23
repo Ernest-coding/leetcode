@@ -78,9 +78,11 @@ public class array_1 {
     private static int removeDuplicates_3(int[] nums){
         int num = 0;
         for(int i = 0; i < nums.length-1;){
+            // 如果当前元素与最后一个元素相等，说明后续都是相等的，直接退出
             if(nums[i] == nums[nums.length-1])
                 break;
             int j = i + 1;
+            // 在这里直接找到下一个与当前元素不同的值
             while(nums[i] == nums[j]){
                 if(j < nums.length-1)
                     j++;
@@ -88,14 +90,11 @@ public class array_1 {
                     break;
             }
             num++;
+            // 找到之后与当前第 num 位进行替换，道理类似于选择排序
+            // 然后直接将起始的 i 跳到 j 处
             nums[num] = nums[j];
             i = j;
         }
-        for (int i :
-                nums) {
-            System.out.print(i+" ");
-        }
-        System.out.println();
         return num+1;
     }
 }
